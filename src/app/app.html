@@ -1,0 +1,28 @@
+<div class="page-wrap">
+  <header class="hero">
+    <div class="logo-row">
+      <a href="https://puter.com" target="_blank" rel="noreferrer">
+        <img src="https://puter.com/images/logo.png" class="logo" alt="Puter logo" />
+      </a>
+    </div>
+    <h1>Puter.js Examples</h1>
+    <p class="hero-subtitle">Quick, runnable snippets for the most common Puter.js APIs.</p>
+  </header>
+
+  <nav class="tab-list" aria-label="Puter.js example tabs">
+    <button
+      *ngFor="let tab of tabs"
+      class="tab"
+      [class.active]="tab.id === activeTabId()"
+      type="button"
+      (click)="setActiveTab(tab.id)"
+    >
+      <span class="tab-title">{{ tab.label }}</span>
+      <span class="tab-desc">{{ tab.description }}</span>
+    </button>
+  </nav>
+
+  <main class="tab-panel">
+    <ng-container *ngComponentOutlet="activeTab().component"></ng-container>
+  </main>
+</div>
